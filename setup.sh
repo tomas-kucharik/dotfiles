@@ -1,7 +1,6 @@
-REPO="https://github.com/erikcek/nvim.git"
+REPO="https://github.com/tomas-kucharik/dotfiles"
 
 echo "Installing neovim..."
-
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
@@ -41,7 +40,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     fi
-
 else
     # Expecting Ubuntu.
     which -s npm
@@ -82,8 +80,8 @@ if [ -d "$DIR" ]; then
 else
     echo "${Green}Cloning nvim repository..."
     git clone $REPO ~/nvim
-    sh ~/nvim/install
-    sh ~/nvim/install_lsp_servers.sh
+    sh ~/nvim/install-env
+    sh ~/nvim/install-lsp-servers.sh
     nvim --headless +PlugInstall +qall
 fi
 
