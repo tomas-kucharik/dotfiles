@@ -1,12 +1,17 @@
-REPO="https://github.com/tomas-kucharik/dotfiles"
+#/bin/bash
+
+Green='\033[0;32m'
+Red='\033[0;31m'
+Reset='\033[0m'
 
 echo "Installing neovim..."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
+    echo "macOS detected"
+
+    # Homebrew
     which -s brew
     if [[ $? != 0 ]] ; then
-        # Install Homebrew
         echo "Installing brew..."
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
@@ -14,74 +19,81 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         brew update
     fi
 
-    which -s npm
+    # node && npm
+    which -s node
     if [[ $? != 0 ]] ; then
-        # Install Npm
-        echo "Installing npm..."
+        echo "Installing node..."
         brew install node
     else
-        echo "Npm exists. Skiping..."
+        echo "node exists. Skiping..."
     fi
 
+    # neovim
     which -s nvim
     if [[ $? != 0 ]] ; then
         echo "Installing neovim"
         brew install neovim
     else
-        echo "Neovim exists. Skiping..."
+        echo "neovim exists. Skiping..."
     fi
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo "Linux detected"
 
-    DIR='${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'
-    if [ -d "$DIR" ]; then
-        # Take action if $DIR exists. #
-        echo "Vim-plug exists. Skiping..."
-    else
-        echo "Installing Vim-plug"
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    fi
-else
-    # Expecting Ubuntu.
-    which -s npm
+    # node && npm
+    which -s node
     if [[ $? != 0 ]] ; then
-        # Install Npm
-        echo "Installing node and npm..."
-        sudo apt install nodejs
-        sudo apt install npm
+        echo "Installing node and npm"
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        sudo apt-get install -y nodejs
     else
-        echo "Npm exists. Skiping..."
+        echo "node exists. Skiping..."
     fi
 
+    # neovim
     which -s nvim
     if [[ $? != 0 ]] ; then
-        echo "Installing neovim"
-        sudo apt install neovim
+        echo "Downloading neovim"
+        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+        chmod u+x nvim.appimage
+        echo "Extracting neovim appimage"
+        ./nvim.appimage --appimage-extract
+        echo "Moving extracted neovim to /nvim and symlinking to /usr/bin/nvim"
+        sudo mv squashfs-root /nvim && sudo ln -s /nvim/AppRun /usr/bin/nvim
     else
-        echo "Neovim exists. Skiping..."
+        echo "neovim exists. Skiping..."
     fi
-
-    DIR='${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'
-    if [ -d "$DIR" ]; then
-        # Take action if $DIR exists. #
-        echo "Vim-plug exists. Skiping..."
-    else
-        echo "Installing Vim-plug"
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    fi
-
+else
+    echo "${Red}I don't know how to install in your OS. Exiting..."
+    exit 1
 fi
 
-DIR='~/nvim'
+echo "${Green}Installing vim.plug"
+DIR='${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'
 if [ -d "$DIR" ]; then
-    # Take action if $DIR exists. #
-    echo "Direstory nvim already exists in HOME. Unable setup neovim from git. Exiting..."
-    exit 1
+    echo "Vim-plug exists. Skiping..."
+else
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
+
+REPO="https://github.com/tomas-kucharik/dotfiles"
+DIR="~/.dotfiles"
+if [ -d "$DIR" ]; then
+    echo "${Red}Directory $DIR already exists."
+    read -p "Enter the name of directory where you want to clone dotfiles repo" DIR
 else
     echo "${Green}Cloning nvim repository..."
-    git clone $REPO ~/nvim
-    sh ~/nvim/install-env
-    sh ~/nvim/install-lsp-servers.sh
-    nvim --headless +PlugInstall +qall
+    git clone $REPO $DIR
+    if [[ $? != 1 ]] ; then
+        echo "${Green}Stowing dotfiles"
+        sh $DIR/install-env.sh
+        echo "${Green}Installing language servers"
+        sh $DIR/install-lsp-servers.sh
+        echo "${Green}Installing plugins in neovim"
+        nvim --headless +PlugInstall +qall
+    else
+        echo "${Red}Cloning failed. Exiting..."
+        exit 1
+    fi
 fi
 
