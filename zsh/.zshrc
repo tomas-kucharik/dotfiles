@@ -116,9 +116,7 @@ function cinit(){
     # <<< conda initialize <<<
 }
 
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 alias luamake=/Users/a103339722/Documents/personal/lua-language-server/3rd/luamake/luamake
 
