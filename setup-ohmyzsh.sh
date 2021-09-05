@@ -7,7 +7,7 @@ RESET='\033[0m'
 
 echo "${YELLOW}Running script for installing zsh, OhMyZsh and stowing dotfiles from github...${RESET}"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin" ]]; then
     echo "${YELLOW}macOS detected${RESET}"
 
     # Homebrew

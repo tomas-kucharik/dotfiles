@@ -7,7 +7,7 @@ RESET='\033[0m'
 
 echo "${YELLOW}Installing neovim..."
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin" ]]; then
     echo "${YELLOW}macOS detected"
 
     # Homebrew
