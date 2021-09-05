@@ -16,6 +16,7 @@ npm i -g pyright # python
 npm i -g typescript typescript-language-server # typescript
 npm i -g vim-language-server # viml
 npm i -g vls # vue
+npm i -g denols # deno
 
 echo -e "${YELLOW}Installing with yarn${RESET}"
 yarn global add yaml-language-server # yaml
