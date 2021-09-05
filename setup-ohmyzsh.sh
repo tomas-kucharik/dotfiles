@@ -35,7 +35,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     which -s zsh
     if [[ $? -ne 0 ]]; then
         echo -e "${YELLOW}Installing zsh${RESET}"
-        sudo apt install zsh
+        apt install zsh
     else
         echo -e "${YELLOW}zsh exists. Skipping...${RESET}"
     fi
