@@ -3,8 +3,14 @@
 1. npm
 2. ruby
 
-# Install
+# Install neovim
 
 ```
-curl -s https://raw.githubusercontent.com/tomas-kucharik/dotfiles.git | bash -s arg1 arg2
+sh $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-nvim.sh)
+```
+
+# Install zsh and OhMyZsh
+
+```
+sh $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-ohmyzsh.sh)
 ```
