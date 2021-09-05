@@ -35,7 +35,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     which -s zsh
     if [[ $? -ne 0 ]]; then
         echo -e "${YELLOW}Installing zsh${RESET}"
-        apt install zsh
+        sudo apt install zsh
     else
         echo -e "${YELLOW}zsh exists. Skipping...${RESET}"
     fi
@@ -49,6 +49,7 @@ fi
 DIR="~/.oh-my-zsh"
 if ! [[ -d $DIR ]]; then
     echo -e "${GREEN}Installing OhMyZsh${RESET}"
+    export RUNZSH=no # Does not run zsh after install
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo -e "${YELLOW}OhMyZsh exists. Skipping...${RESET}"
