@@ -120,3 +120,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias luamake=/Users/a103339722/Documents/personal/lua-language-server/3rd/luamake/luamake
 
+# >>> deno >>>
+export DENO_INSTALL="/Users/a103339722/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+# <<< deno <<<
+
