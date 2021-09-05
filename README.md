@@ -6,11 +6,11 @@
 # Install neovim
 
 ```
-sh $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-nvim.sh)
+bash $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-nvim.sh)
 ```
 
 # Install zsh and OhMyZsh
 
 ```
-sh $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-ohmyzsh.sh)
+bash $(curl -fsSL https://raw.githubusercontent.com/tomas-kucharik/dotfiles/master/setup-ohmyzsh.sh)
 ```
