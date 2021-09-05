@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Homebrew
     which -s brew
-    if [[ $? != 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing brew...${RESET}"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
@@ -22,7 +22,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # zsh
     which -s zsh
-    if [[ $? != 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing zsh${RESET}"
         brew install zsh
     else
@@ -33,7 +33,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 
     # zsh
     which -s zsh
-    if [[ $? != 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing zsh${RESET}"
         sudo apt install zsh
     else
@@ -64,13 +64,11 @@ done
 echo "${GREEN}Cloning dotfiles repository...${RESET}"
 git clone $REPO $DIR
 # dotfiles stow
-if [[ $? -ne 1 ]] ; then
+if [[ $? -ne 1 ]]; then
     echo "${GREEN}Stowing dotfiles${RESET}"
     sh $DIR/install-env.sh zsh
 else
     echo "${RED}Cloning failed. Exiting...${RESET}"
     exit 1
 fi
-
-
 

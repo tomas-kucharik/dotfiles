@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Homebrew
     which -s brew
-    if [[ $? -ne 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing brew..."
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
@@ -22,7 +22,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # node && npm
     which -s node
-    if [[ $? -ne 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing node..."
         brew install node
     else
@@ -31,7 +31,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # neovim
     which -s nvim
-    if [[ $? -ne 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing neovim"
         brew install neovim
     else
@@ -42,7 +42,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 
     # node && npm
     which -s node
-    if [[ $? -ne 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Installing node and npm"
         curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
         sudo apt-get install -y nodejs
@@ -52,7 +52,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 
     # neovim
     which -s nvim
-    if [[ $? -ne 0 ]] ; then
+    if [[ $? -ne 0 ]]; then
         echo "${YELLOW}Downloading neovim"
         curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
         chmod u+x nvim.appimage
@@ -88,7 +88,7 @@ done
 echo "${GREEN}Cloning nvim repository..."
 git clone $REPO $DIR
 # dotfiles stow
-if [[ $? -ne 1 ]] ; then
+if [[ $? -ne 1 ]]; then
     echo "${GREEN}Stowing dotfiles"
     sh $DIR/install-env.sh
     echo "${GREEN}Installing language servers"
