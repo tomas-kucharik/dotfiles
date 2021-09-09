@@ -7,3 +7,6 @@ let g:NERDTreeIgnore = ['^node_modules$', '.DS_Store', ".git$", ".ipynb_checkpoi
 
 " Airline devicons dependancy
 let g:airline_powerline_fonts = 1
+
+" netrw viewer
+let g:netrw_browsex_viewer = "xdg-open"
