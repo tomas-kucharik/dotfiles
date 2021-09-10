@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+" MUST HAVES
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -30,6 +31,10 @@ Plug 'RRethy/vim-illuminate'
 Plug 'szw/vim-maximizer'
 " Status line
 Plug 'vim-airline/vim-airline'
+" Json formatting
+Plug 'elzr/vim-json'
+
+" OPTIONALS
 " Paste with indentation
 Plug 'sickill/vim-pasta'
 " Fancy start screen
@@ -40,10 +45,14 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'jiangmiao/auto-pairs'
 " Toggle between single and multiline statements
 Plug 'AndrewRadev/splitjoin.vim'
+
+" THEMES
 " Dev icons
 Plug 'ryanoasis/vim-devicons'
 " The one and only theme you need
 Plug 'joshdick/onedark.vim'
+
+" LSP + LSP STUFF
 " Language server protocol
 Plug 'neovim/nvim-lspconfig'
 " Autocompletion

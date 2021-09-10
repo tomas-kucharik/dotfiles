@@ -8,6 +8,7 @@ inoremap jj <Esc>
 nnoremap <leader>w :write<cr>
 nnoremap <leader>s :update<cr>
 nnoremap <leader>q :quit<cr>
+nnoremap <leader>Q :quitall<cr>
 tnoremap <Esc> <C-\><C-n>
 " inoremap <Tab> <C-n>
 " inoremap <S-Tab> <C-p>
