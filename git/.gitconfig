@@ -1,8 +1,8 @@
 [user]
-	email = tomas.kucharik@telekom.com
-	name = Tomas Kucharik
+    email = tomas.kucharik@telekom.com
+    name = Tomas Kucharik
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [alias]
     cam = commit -a -m
     camend = commit --amend -m
