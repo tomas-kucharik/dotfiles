@@ -5,6 +5,14 @@
 	defaultBranch = master
 [alias]
     cam = commit -a -m
-    lol = log --pretty=oneline --abbrev-commit --graph
+    camend = commit --amend -m
+    s = status
+    ssb = status -sb
+    p = push
+    d = diff
+    find = "!f() { git --no-pager log -S $1 --source --all; }; f"
+    last = !git --no-pager log -1 HEAD --stat
+    lol = !git --no-pager log --pretty=oneline --abbrev-commit --graph
     lg = !git --no-pager log --all --color --abbrev-commit --graph \
         --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr)%Creset by $C(blue)%an%Creset' --
+
