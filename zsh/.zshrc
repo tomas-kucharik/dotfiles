@@ -1,5 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/a103339722/.oh-my-zsh"
@@ -68,7 +67,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo dirhistory zsh_reload osx zsh-autosuggestions web-search zsh-syntax-highlighting)
+plugins=(sudo zsh_reload osx zsh-autosuggestions web-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,7 +126,11 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 alias luamake=/Users/a103339722/Documents/personal/lua-language-server/3rd/luamake/luamake
 
 # >>> deno >>>
-export DENO_INSTALL="/Users/a103339722/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 # <<< deno <<<
+
+# >>> custom scripts >>>
+export PATH="$HOME/.local/bin:$PATH"
+# <<< custom scripts <<<
 
