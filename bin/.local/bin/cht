@@ -1,5 +1,5 @@
 #/bin/bash
-selected=`cat ~/.tmux-cht-languages ~/.tmux-cht-commands | fzf`
+selected=`cat ~/.cht-languages ~/.cht-commands | fzf`
 read -p "Enter Query: " query
 
 if grep -qs "$selected" ~/.tmux-cht-languages; then
