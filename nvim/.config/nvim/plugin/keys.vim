@@ -19,7 +19,9 @@ vnoremap <leader>d "_d
 
 " Use clipboard to copy/paste
 vnoremap <leader>c "*y
+nnoremap <leader>c "*y
 vnoremap <leader>v "*p
+nnoremap <leader>v "*p
 
 " Yank should behave like the rest of the children...
 nnoremap Y y$

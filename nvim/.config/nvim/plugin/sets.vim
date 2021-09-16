@@ -8,15 +8,22 @@ set guifont=DroidSansMono_Nerd_Font:h11
 " Vim settings
 set exrc                                    " Use local .vimrc if exists
 set encoding=UTF-8                          " Encoding
+
+" Line numbers
 set relativenumber                          " Relative numbers
 set number                                  " Current line number
+
 set hidden                                  " Dont unload buffer
 set noerrorbells                            " Do not ring bell for error messages
+
+" Tabs and indentation
 set tabstop=4                               " Tabs
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+set softtabstop=0
+set shiftwidth=0
+set noexpandtab
 set smartindent
+set autoindent
+
 set nowrap                                  " Dont wrap lines
 set noswapfile                              " Dont use .swap files
 set nobackup                                " Dont keep backup after owerwritin file
