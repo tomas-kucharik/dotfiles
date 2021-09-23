@@ -9,25 +9,21 @@ RESET='\033[0m'
 if [[ $# -eq 0 ]]; then
     echo -e "${YELLOW}No arguments passed... stowing everything${RESET}"
 
-    pushd $PWD # Go to $HOME dir, save current directory in stack
     for folder in */ # For each folder in current working directory
     do
         echo -e "${RED}Removing $folder${RESET}"
-        stow -D $folder
+        stow --target=$HOME -D $folder
         echo -e "${GREEN}Stowing new $folder${RESET}"
-        stow $folder
+        stow --target=$HOME $folder
     done
-    popd # Go back to directory saved in stack
 else
     echo -e "${YELLOW}Some arguments were passed... stowing only what you specified${RESET}"
 
-    pushd $PWD # Go to $HOME dir, save current directory in stack
     for arg; do # For each argument passed
         echo -e "${RED}Removing old $arg${RESET}"
-        stow -D $arg
+        stow --target=$HOME -D $arg
         echo -e "${GREEN}Stowing new $arg${RESET}"
-        stow $arg
+        stow --target=$HOME $arg
     done
-    popd # Go back to directory saved in stack
 fi
 

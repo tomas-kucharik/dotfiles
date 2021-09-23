@@ -1,5 +1,5 @@
 #!/bin/bash
-workdir=$(find ~/Documents/work ~/Documents/personal -mindepth 1 -maxdepth 3 -type d | fzf)
+workdir=$(find ~/Documents -mindepth 1 -maxdepth 4 -type d | fzf)
 dirname=$(basename "$workdir" | tr . _)
 
 if ! tmux has-session -t "$dirname" 2> /dev/null; then
