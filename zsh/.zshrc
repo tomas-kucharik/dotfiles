@@ -102,6 +102,7 @@ alias vim="nvim"
 alias df="df -h"
 alias ls="ls -h"
 alias mux="tmuxinator"
+alias k="k -h"
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"
