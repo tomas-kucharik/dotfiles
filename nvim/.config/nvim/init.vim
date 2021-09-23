@@ -45,6 +45,8 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'jiangmiao/auto-pairs'
 " Toggle between single and multiline statements
 Plug 'AndrewRadev/splitjoin.vim'
+" REPL
+Plug 'sillybun/vim-repl'
 
 " THEMES
 " Dev icons
@@ -55,6 +57,8 @@ Plug 'joshdick/onedark.vim'
 " LSP + LSP STUFF
 " Language server protocol
 Plug 'neovim/nvim-lspconfig'
+" Lsp Install
+Plug 'kabouzeid/nvim-lspinstall'
 " Autocompletion
 Plug 'hrsh7th/nvim-compe'
 " Snippets

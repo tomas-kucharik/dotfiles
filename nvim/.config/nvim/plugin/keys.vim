@@ -20,8 +20,8 @@ vnoremap <leader>d "_d
 " Use clipboard to copy/paste
 vnoremap <leader>c "*y
 nnoremap <leader>c "*y
-vnoremap <leader>v "*p
-nnoremap <leader>v "*p
+vnoremap <leader>p "*p
+nnoremap <leader>p "*p
 
 " Yank should behave like the rest of the children...
 nnoremap Y y$
@@ -82,4 +82,7 @@ nnoremap <C-p> :NERDTreeToggle<cr>
 
 " Undofile
 nnoremap <leader>u :UndotreeToggle<CR>
+
+" REPL
+nnoremap <leader>r :REPLToggle
 
