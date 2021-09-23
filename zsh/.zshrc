@@ -28,7 +28,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
 
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
@@ -67,7 +66,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo zsh_reload osx tmux zsh-autosuggestions web-search zsh-syntax-highlighting)
+plugins=(zsh_reload osx tmux zsh-autosuggestions web-search k zsh-syntax-highlighting)
 
 ZSH_TMUX_AUTOSTART=true
 
@@ -89,22 +88,23 @@ source $HOME/.oh-my-zsh/plugins/enhancd/init.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
+# Aliases
 alias vim="nvim"
+alias df="df -h"
+alias ls="ls -h"
+alias mux="tmuxinator"
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"
 
 function cinit(){
     # >>> conda initialize >>>
@@ -136,3 +136,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 # <<< custom scripts <<<
 
+# # >>> coreutils >>>
+# export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+# # <<< coreutils <<<
