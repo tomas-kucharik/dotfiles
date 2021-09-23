@@ -1,0 +1,10 @@
+# $HOME/.config/tmuxinator/project.yml
+
+name: <%= @settings["name"] %>
+root: <%= @settings["workdir"] %>
+
+windows:
+  - nvim: nvim .
+  - terminal: null
+  - status: git status
+
