@@ -3,6 +3,9 @@
     name = Tomas Kucharik
 [init]
     defaultBranch = master
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 [alias]
     cam = commit -a -m
     camend = commit --amend
