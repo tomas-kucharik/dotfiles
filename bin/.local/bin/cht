@@ -1,10 +1,15 @@
-#/bin/bash
+#!/bin/bash
 selected=`cat ~/.cht-languages ~/.cht-commands | fzf`
-read -p "Enter Query: " query
+if ! [ -z "$selected" ]; then
+	read -p "Enter Query: " query
 
-if grep -qs "$selected" ~/.tmux-cht-languages; then
-    query=`echo $query | tr ' ' '+'`
-    curl cht.sh/$selected/$query
+	if grep -qs "$selected" ~/.tmux-cht-languages; then
+		query=`echo $query | tr ' ' '+'`
+		curl cht.sh/$selected/$query
+	else
+		curl -s cht.sh/$selected~$query | less
+	fi
 else
-    curl -s cht.sh/$selected~$query | less
+	echo "No language selected. Exiting..."
 fi
+
