@@ -2,6 +2,7 @@
 1. tmux
 2. tmuxinator
 3. fzf
+4. k
 
 ### bash install -> ansible
 

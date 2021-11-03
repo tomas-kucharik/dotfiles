@@ -66,7 +66,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh_reload osx tmux zsh-autosuggestions web-search k zsh-syntax-highlighting)
+plugins=(osx tmux zsh-autosuggestions web-search k zsh-syntax-highlighting)
 
 ZSH_TMUX_AUTOSTART=true
 
@@ -102,7 +102,8 @@ alias vim="nvim"
 alias df="df -h"
 alias ls="ls -h"
 alias mux="tmuxinator"
-alias k="k -h"
+alias lk="lk -h"
+alias k="kubectl"
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"
