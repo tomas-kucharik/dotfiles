@@ -33,6 +33,8 @@ Plug 'szw/vim-maximizer'
 Plug 'vim-airline/vim-airline'
 " Json formatting
 Plug 'elzr/vim-json'
+" Harpoon
+Plug 'ThePrimeagen/harpoon'
 
 " OPTIONALS
 " Paste with indentation
