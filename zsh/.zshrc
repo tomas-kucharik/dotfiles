@@ -66,7 +66,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx tmux zsh-autosuggestions web-search k zsh-syntax-highlighting)
+plugins=(macos tmux zsh-autosuggestions web-search k zsh-syntax-highlighting)
 
 ZSH_TMUX_AUTOSTART=true
 
@@ -94,16 +94,19 @@ else
   export EDITOR='nvim'
 fi
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completioni
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # Aliases
 alias vim="nvim"
 alias df="df -h"
-alias ls="ls -h"
+alias ls="k -ah"
 alias mux="tmuxinator"
-alias lk="lk -h"
-alias k="kubectl"
+alias kube="kubectl"
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"
@@ -141,3 +144,40 @@ export PATH="$HOME/.local/bin:$PATH"
 # # >>> coreutils >>>
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # # <<< coreutils <<<
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/a103339722/Documents/personal/diplomka/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a103339722/Documents/personal/diplomka/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/a103339722/Documents/personal/diplomka/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a103339722/Documents/personal/diplomka/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:
+:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# JINA_CLI_END
+
