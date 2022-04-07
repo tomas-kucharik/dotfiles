@@ -104,9 +104,10 @@ export NVM_DIR="$HOME/.nvm"
 # Aliases
 alias vim="nvim"
 alias df="df -h"
-alias ls="k -ah"
+alias ls="fancyls -ah"
 alias mux="tmuxinator"
-alias kube="kubectl"
+alias k="kubectl"
+alias comet="~/go/bin/comet"
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"

@@ -22,3 +22,7 @@ augroup autosave
     autocmd BufLeave * silent! :wa"
 augroup end
 
+augroup filetype_jsx
+    autocmd!
+    autocmd FileType javascriptreact set filetype=javascript
+augroup END
