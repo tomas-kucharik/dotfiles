@@ -1,23 +1,26 @@
 call plug#begin('~/.vim/plugged')
-" Language server protocol
+" LSP
 Plug 'neovim/nvim-lspconfig'
-" Lsp installer
+" Language server installer
 Plug 'williamboman/nvim-lsp-installer'
-"" Completion framework
+
+" Autocompletion
 Plug 'hrsh7th/nvim-cmp'
-" LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
-" Snippet completion source for nvim-cmp
-Plug 'hrsh7th/cmp-vsnip'
-" Other usefull completion sources
+" Other completion sources
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
-" Snippet engine
-Plug 'hrsh7th/vim-vsnip'
-" Nicer lsp UI
-" Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/cmp-cmdline'
 
-" Advanced features of rust-analyzer, such as inlay hints etc.
+" Snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+" Schemastore support for json lsp
+Plug 'b0o/schemastore.nvim'
+
+" Advanced features of rust-analyzer (inlay-hints)
 Plug 'simrat39/rust-tools.nvim'
 
 " Telescope
@@ -25,6 +28,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " Treesitter highlighting, indentation, folding
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -33,12 +37,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Dev icons
+Plug 'ryanoasis/vim-devicons'
 
 " undotree
 Plug 'mbbill/undotree'
-
-" Formatting
-Plug 'sbdchd/neoformat'
 
 " tpope goodies
 Plug 'tpope/vim-surround'
@@ -53,7 +56,7 @@ Plug 'ggandor/lightspeed.nvim'
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
 
-" Illuminate words currently under cursor
+" Illuminate words under cursor
 Plug 'RRethy/vim-illuminate'
 
 " Split maximizer
@@ -62,19 +65,13 @@ Plug 'szw/vim-maximizer'
 " Status line
 Plug 'vim-airline/vim-airline'
 
-" Json formatting
-Plug 'elzr/vim-json'
-
 " Harpoon
 Plug 'ThePrimeagen/harpoon'
+" Refactoring
+Plug 'ThePrimeagen/refactoring.nvim'
 
 " Auto pairs for {[('""')]}
 Plug 'jiangmiao/auto-pairs'
-" Terraform
-Plug 'hashivim/vim-terraform'
-
-" Dev icons
-Plug 'ryanoasis/vim-devicons'
 
 " The one and only theme you need
 Plug 'joshdick/onedark.vim'

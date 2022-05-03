@@ -1,9 +1,9 @@
 " NerdTree show hidden files
 let NERDTreeShowHidden=1
-let g:NERDTreeIgnore = ['^node_modules$', '.DS_Store', ".git$", ".ipynb_checkpoints$", "__pycache__$"] " ignore node_modules to increase load speed
-nnoremap <leader><C-r> :NERDTreeRefreshRoot<CR>
+" ignore node_modules to increase load speed
+let g:NERDTreeIgnore = ['^node_modules$', '.DS_Store', ".git$", ".ipynb_checkpoints$", "__pycache__$"]
 
-" Airline devicons dependancy
+" Airline devicons dependency
 let g:airline_powerline_fonts = 1
 
 " netrw viewer

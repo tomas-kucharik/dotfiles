@@ -4,10 +4,9 @@ augroup fuckautocomments
 augroup end
 
 " Auto formatting
-augroup neoformat
+augroup remove_whitespaces
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
-    autocmd BufWritePre * undojoin | Neoformat
 augroup end
 
 " Resize splits when the window is resized
@@ -22,7 +21,31 @@ augroup autosave
     autocmd BufLeave * silent! :wa"
 augroup end
 
-augroup filetype_jsx
-    autocmd!
-    autocmd FileType javascriptreact set filetype=javascript
-augroup END
+" augroup filetype_jsx
+"     autocmd!
+" 	autocmd BufEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact
+" 	autocmd BufEnter,BufRead,BufNewFile *.js set filetype=javascript
+" augroup end
+
+" augroup json_autocmd
+"   autocmd!
+"   autocmd FileType json set autoindent
+"   autocmd FileType json set formatoptions=tcq2l
+"   autocmd FileType json set textwidth=78 shiftwidth=2
+"   autocmd FileType json set softtabstop=2 tabstop=8
+"   autocmd FileType json set expandtab
+"   autocmd FileType json set foldmethod=syntax
+" augroup END
+
+" " .js, .jsx
+" au! BufRead,BufNewFile *.js set filetype=js
+" au! BufRead,BufNewFile *.jsx set filetype=js
+
+" augroup js_autocmd
+"   autocmd!
+"   autocmd FileType js set autoindent
+"   autocmd FileType js set formatoptions=tcq2l
+"   autocmd FileType js set textwidth=78 shiftwidth=2
+"   autocmd FileType js set softtabstop=2 tabstop=8
+"   autocmd FileType js set expandtab
+" augroup END
