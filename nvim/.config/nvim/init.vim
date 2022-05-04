@@ -43,15 +43,15 @@ Plug 'ryanoasis/vim-devicons'
 " undotree
 Plug 'mbbill/undotree'
 
+" Lightspeed
+Plug 'ggandor/lightspeed.nvim'
+
 " tpope goodies
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-
-" Lightspeed
-Plug 'ggandor/lightspeed.nvim'
 
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
