@@ -81,7 +81,7 @@ nnoremap <leader>gf :diffget //2<cr>
 nnoremap <leader>fp <cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fb <cmd>Telescope file_browser<cr>
+nnoremap <leader>fb <cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>
 " Grep
 nnoremap <leader>fl <cmd>lua require('telescope.builtin').live_grep({ hidden = true })<cr>
 
