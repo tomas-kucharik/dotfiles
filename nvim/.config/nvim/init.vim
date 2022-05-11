@@ -40,6 +40,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Dev icons
 Plug 'ryanoasis/vim-devicons'
 
+" Vim-tmux Navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 " undotree
 Plug 'mbbill/undotree'
 
