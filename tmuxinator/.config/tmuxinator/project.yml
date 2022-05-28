@@ -4,6 +4,6 @@ name: <%= @settings["name"] %>
 root: <%= @settings["workdir"] %>
 
 windows:
-  - nvim: nvim .
+  - nvim: nvim --startuptime startup.nvim .
   - terminal: null
 

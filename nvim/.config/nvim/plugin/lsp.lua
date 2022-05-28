@@ -44,7 +44,7 @@ cmp.setup({
 	},
 	window = {
 		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -78,14 +78,6 @@ cmp.setup({
 	})
 })
 
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources({
-		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-	}, {
-		{ name = 'buffer' },
-	})
-})
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
@@ -105,18 +97,27 @@ cmp.setup.cmdline(':', {
 	})
 })
 
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Setup cmp-lsp
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Load LSPs
-local servers = { "sumneko_lua", "rust_analyzer", "tsserver", "pyright", "jsonls", "vimls", "yamlls", "html", "bashls", "dockerls", "cssls", "gopls", "terraformls", "prosemd_lsp"}
-require("nvim-lsp-installer").setup {
-	ensure_installed = servers
-}
+-- Setup lsp-installer
+local servers = { "sumneko_lua", "tsserver", "rust_analyzer", "pylsp", "jsonls", "vimls", "yamlls", "html", "bashls", "dockerls", "cssls", "gopls", "terraformls", "prosemd_lsp" }
+require("nvim-lsp-installer").setup({})
 
+-- Setup lsp servers
 for _, server in ipairs(servers) do
-	require('lspconfig')[server].setup {
-		on_attach = on_attach,
-		capabilities = capabilities
-	}
+	if server == 'rust_analyzer' then
+		require('rust-tools').setup({
+			server = {
+				on_attach = on_attach,
+				capabilities = capabilities
+			}
+		})
+	else
+		require('lspconfig')[server].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+	end
 end

@@ -1,6 +1,8 @@
 " Colorscheme
+" let g:gruvbox_contrast_dark = 'hard'
+" colorscheme gruvbox
 colorscheme onedark
-hi Normal ctermbg=NONE guibg=NONE
+" hi Normal ctermbg=NONE guibg=NONE
 
 " Font
 set guifont=DroidSansMono_Nerd_Font:h11
@@ -15,6 +17,8 @@ set number                                  " Current line number
 
 set hidden                                  " Dont unload buffer
 set noerrorbells                            " Do not ring bell for error messages
+
+set mouse=a									" Sometimes... mouse is fine
 
 " Tabs and indentation
 set tabstop=4                               " Tabs

@@ -4,7 +4,7 @@ Plug 'neovim/nvim-lspconfig'
 " Language server installer
 Plug 'williamboman/nvim-lsp-installer'
 
-" Autocompletion
+" " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 " Other completion sources
@@ -78,5 +78,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " The one and only theme you need
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
