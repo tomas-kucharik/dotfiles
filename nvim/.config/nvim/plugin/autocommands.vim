@@ -21,6 +21,14 @@ augroup autosave
     autocmd BufLeave * silent! :wa"
 augroup end
 
+augroup tabs_for_js_jsx_ts_tsx
+    autocmd!
+	autocmd BufEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact tabstop=2 expandtab
+	autocmd BufEnter,BufRead,BufNewFile *.js set filetype=javascript tabstop=2 expandtab
+	autocmd BufEnter,BufRead,BufNewFile *.tsx set filetype=typescriptreact tabstop=2 expandtab
+	autocmd BufEnter,BufRead,BufNewFile *.ts set filetype=typescript tabstop=2 expandtab
+augroup end
+
 " augroup filetype_jsx
 "     autocmd!
 " 	autocmd BufEnter,BufRead,BufNewFile *.jsx set filetype=javascriptreact

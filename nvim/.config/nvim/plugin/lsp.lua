@@ -102,7 +102,7 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Setup lsp-installer
-local servers = { "sumneko_lua", "tsserver", "rust_analyzer", "pylsp", "jsonls", "vimls", "yamlls", "html", "bashls", "dockerls", "cssls", "gopls", "terraformls", "prosemd_lsp" }
+local servers = { "sumneko_lua", "tsserver", "denols", "rust_analyzer", "pylsp", "jsonls", "vimls", "yamlls", "html", "bashls", "dockerls", "cssls", "gopls", "terraformls", "prosemd_lsp" }
 require("nvim-lsp-installer").setup({})
 
 -- Setup lsp servers
@@ -113,6 +113,18 @@ for _, server in ipairs(servers) do
 				on_attach = on_attach,
 				capabilities = capabilities
 			}
+		})
+	elseif server == 'tsserver' then
+		require('lspconfig').tsserver.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = require('lspconfig').util.root_pattern("package.json")
+		})
+	elseif server == 'denols' then
+		require('lspconfig').denols.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_dir = require('lspconfig').util.root_pattern("deno.json", "deno.jsonc"),
 		})
 	else
 		require('lspconfig')[server].setup({

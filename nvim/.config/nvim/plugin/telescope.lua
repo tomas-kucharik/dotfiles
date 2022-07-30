@@ -9,7 +9,7 @@ require("telescope").setup {
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
-		file_ignore_patterns = { "node_modules", ".git" }
+		file_ignore_patterns = { "node_modules", ".git/" }
 	},
 	extensions = {
 		fzf = {

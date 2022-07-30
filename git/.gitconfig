@@ -22,6 +22,8 @@
     lol = log --pretty=oneline --abbrev-commit --graph
     lg = log --all --color --abbrev-commit --graph \
         --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr)%Creset by $C(blue)%an%Creset' --
+[push]
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [interactive]
